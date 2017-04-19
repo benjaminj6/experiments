@@ -9,7 +9,7 @@ import { black, white } from './colors'
 import { getPropConditionally, getPropertyIfAbsolute, getPropOrDefault } from './mixins'
 
 // General html tags
-export const Header = styled.header`
+export const Footer = styled.footer`
   align-items: center
   bottom: ${getPropertyIfAbsolute(0)}
   display: flex
@@ -43,9 +43,4 @@ export const Svg = styled.svg`
   fill: ${getPropOrDefault('color', black)}
   margin: ${getPropOrDefault('margin', 0)}
   padding: ${getPropConditionally('shaded', '0.25rem', 0)}
-`
-
-// Layout
-export const Row = styled.div`
-  width: 100%
 `
