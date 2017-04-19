@@ -3,16 +3,21 @@
  * Styled components to be used throughout page for consistent UI
  */
 import styled from 'styled-components'
+import rgba from 'hex-rgba'
 
-import { white, black } from './colors'
-import { getPropOrDefault, getPropertyIfAbsolute } from './mixins'
+import { black, white } from './colors'
+import { getPropConditionally, getPropertyIfAbsolute, getPropOrDefault } from './mixins'
 
+// General html tags
 export const Header = styled.header`
+  align-items: center
+  bottom: ${getPropertyIfAbsolute(0)}
+  display: flex
   left: ${getPropertyIfAbsolute(0)}
+  justify-content: flex-end
   padding: 0.5rem
   position: ${getPropertyIfAbsolute('absolute')}
   right: ${getPropertyIfAbsolute(0)}
-  top: ${getPropertyIfAbsolute(0)}
 `
 
 export const Section = styled.section`
@@ -26,10 +31,21 @@ export const Section = styled.section`
 `
 
 export const Span = styled.span`
-  color: ${({ whiteText }) => whiteText ? white : black}
-  fontSize: ${({ small }) => small ? '0.75rem' : 'auto'}
+  color: ${getPropConditionally('whiteText', white, black)}
+  font-size: ${getPropConditionally('small', '0.75rem', 'auto')}
+  font-family: ${getPropConditionally('monospace', 'monospace', 'inherit')}
+  margin: ${getPropOrDefault('margin', 0)}
 `
 
 export const Svg = styled.svg`
+  background-color: ${getPropConditionally('shaded', rgba(black, 20), 'initial')}
+  border-radius: ${getPropConditionally('shaded', '50%', 0)}
   fill: ${getPropOrDefault('color', black)}
+  margin: ${getPropOrDefault('margin', 0)}
+  padding: ${getPropConditionally('shaded', '0.25rem', 0)}
+`
+
+// Layout
+export const Row = styled.div`
+  width: 100%
 `

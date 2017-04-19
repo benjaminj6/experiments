@@ -3,6 +3,7 @@
  * Contains various mixins to make life with styled-components a little easier to manage
 **/
 
+// Conditional application of properties.
 export const getPropOrDefault = (
   prop: string,
   defaultValue: mixed
@@ -18,3 +19,4 @@ export const getPropConditionally = (
 export const getPropertyIfAbsolute = (
   conditionalValue: mixed
 ) => getPropConditionally('absolute', conditionalValue, 'initial')
+
