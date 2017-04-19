@@ -1,10 +1,9 @@
-export default {
-  blue: '#2196f3',
-  green: '#4caf50',
-  teal: '#009688',
-  red: '#f44336',
-  indigo: '#3f51b5',
-  orange: '#ff5722',
-  black: '#222', // slightly off-black makes it a little easier to read
-  white: '#eee' // sligtly off-white makes it a little easier to read
-}
+export const blue = '#2196f3'
+export const green = '#4caf50'
+export const teal = '#009688'
+export const red = '#f44336'
+export const purple = '#9c27b0'
+export const indigo = '#3f51b5'
+export const orange = '#ff5722'
+export const black = '#222' // Slightly off-black improves readability
+export const white = '#eee' // Slightly off-white improves readability

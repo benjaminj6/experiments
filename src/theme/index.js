@@ -1,3 +1,4 @@
 import * as theme from './theme'
+import * as colors from './colors'
 
-export { theme }
+export { colors, theme }
