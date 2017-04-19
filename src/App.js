@@ -1,17 +1,12 @@
-import React, { Component } from 'react'
+import React from 'react'
 
 // Components
-import { Intro } from './components'
+import * as components from './components'
 
-// Style
-import './App.css'
-
-class App extends Component {
-  render() {
-    return (
-      <Intro />
-    )
-  }
-}
+const App = () => (
+  <div id='app'>
+    {components.Intro}
+  </div>
+)
 
 export default App
