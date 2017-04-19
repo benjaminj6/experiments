@@ -5,5 +5,5 @@ export const red = '#f44336'
 export const purple = '#9c27b0'
 export const indigo = '#3f51b5'
 export const orange = '#ff5722'
-export const black = '#222' // Slightly off-black improves readability
+export const black = '#222222' // Slightly off-black improves readability
 export const white = '#efefef' // Slightly off-white improves readability

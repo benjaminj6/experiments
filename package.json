@@ -16,6 +16,7 @@
     "react-scripts": "0.9.5"
   },
   "dependencies": {
+    "hex-rgba": "^1.0.1",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "styled-components": "^1.4.5"
