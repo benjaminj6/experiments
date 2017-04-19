@@ -5,22 +5,20 @@ import * as components from './components'
 import { Experiment } from './components/generalComponents'
 
 // Theme colors
-import { colors, theme } from './theme'
+import { colors } from './theme'
 
 // Intro component...temporary for now.
 const { Intro } = components
-const { Section, Span } = theme
 
-const colorNames = Object.keys(colors)
+// Filter out white from the background colors
+const backgroundColors = Object.keys(colors).filter(c => c !== 'white')
 
 const App = () => (
   <div id='app'>
     <Intro />
     {
-      colorNames.filter(c => c !== 'white').map(c => (
-        <Experiment key={colors[c]} background={colors[c]}>
-          <Span whiteText>Sample text.</Span>
-        </Experiment>
+      backgroundColors.map(c => (
+        <Experiment key={colors[c]} background={colors[c]} />
       ))
     }
   </div>
