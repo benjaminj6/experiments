@@ -18,7 +18,9 @@ const App = () => (
     <Intro />
     {
       backgroundColors.map(c => (
-        <Experiment key={colors[c]} background={colors[c]} />
+        <Experiment key={colors[c]} background={colors[c]}>
+          <span>Test contnet</span>
+        </Experiment>
       ))
     }
   </div>
