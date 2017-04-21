@@ -12,7 +12,7 @@ const App = () => (
     {
       pageLayout.map((rowContent, i) => (
         <RowEven key={`row-${i}`}>
-          {rowContent}
+          {rowContent.map((Item, j) => <Item key={`row-${i}-item-${j}`} />)}
         </RowEven>
       ))
     }
