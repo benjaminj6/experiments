@@ -9,21 +9,6 @@ export const colorMixins = {
   fade: (amt: number) => rgba(COLORS.white, amt)
 }
 
-export class PropMixins {
-  static getPropOrDefault (prop: string, defaultValue: mixed) {
-    return (props: any) => props[prop] || defaultValue
-  }
-
-  static getPropConditionally (prop: string, conditionalValue: mixed, defaultValue: mixed) {
-    return (props: any) => props[prop] ? conditionalValue : defaultValue
-  }
-
-  // shortcut for getPropConditionally('absolute', value, 'initial')
-  static getPropertyIfAbsolute (conditionalValue: mixed) {
-    return this.getPropConditionally('absolute', conditionalValue, 'initial')
-  }
-}
-
 // Media queries -- use ems to handle users that modify font sizes
 export class MediaMixins {
   static _media (breakpoint, ...args: Array<any>) {
@@ -36,6 +21,23 @@ export class MediaMixins {
 
   static medium (...args) {
     return this._media(BREAKPOINTS.medium, ...args)
+  }
+}
+
+export class PropMixins {
+  static propOrDefault (prop: string, defaultValue: mixed) {
+    return (props: any) => props[prop]
+        ? css`${prop}: ${props[prop]}`
+        : css`${prop}: ${defaultValue}`
+  }
+
+  static getPropConditionally (prop: string, conditionalValue: mixed, defaultValue: mixed) {
+    return (props: any) => props[prop] ? conditionalValue : defaultValue
+  }
+
+  // shortcut for getPropConditionally('absolute', value, 'initial')
+  static getPropertyIfAbsolute (conditionalValue: mixed) {
+    return this.getPropConditionally('absolute', conditionalValue, 'initial')
   }
 }
 
@@ -62,6 +64,10 @@ export class SizingMixins {
       ${this.square(size)}
       border-radius: 50%
     `
+  }
+
+  static percentWidth (width: number) {
+    return css`width: ${width}%`
   }
 }
 

@@ -7,7 +7,7 @@ const { Svg: StyledSvg } = theme
 
 const Svg = (props: { size?: number, children?: Array<any> }) => (
   <StyledSvg
-    color={COLORS.white}
+    fill={COLORS.white}
     height={props.size || DEFAULT_SVG_SIZE}
     viewBox='0 0 24 24'
     width={props.size || DEFAULT_SVG_SIZE}
