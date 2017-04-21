@@ -1,5 +1,6 @@
+// @flow
 // Temporary...will be replaced by the experiments themselves
-import { Intro, Experiment } from './components'
+import { Intro, TestExperiment } from './components'
 
 // Each nested array represents a single row
 export default [
@@ -7,6 +8,6 @@ export default [
     Intro
   ],
   [
-    Experiment
+    TestExperiment
   ]
 ]

@@ -12,10 +12,12 @@ const StyledSection = styled(Section)`
   flex-direction: column
 `
 
-export default props => (
+const Intro = props => (
   <StyledSection
     id='intro'>
     <H1>Hello world!</H1>
     <h3>Welcome to my playground</h3>
   </StyledSection>
 )
+
+export default Intro

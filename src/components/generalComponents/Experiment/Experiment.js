@@ -1,15 +1,46 @@
 // @flow
-import React from 'react'
+import React, { Component } from 'react'
 
 import ExperimentFooter from './ExperimentFooter'
 import { theme } from '../../../theme'
 
 const { Section } = theme
 
-// This is the primary `section` designed to contain each experiment
-export default (props: { children: Array<React$Component<any>> }) => (
-  <Section {...props}>
-    <ExperimentFooter title='foo' />
-    {props.children}
-  </Section>
-)
+class Experiment extends Component {
+  props: {
+    children?: Array<any>,
+    data: {
+      title: string, // eslint-disable-line
+      background: string // eslint-disable-line
+    }
+  }
+
+  state = {
+    info: false
+  }
+
+  render () {
+    const { data, children } = this.props
+
+    return (
+      <Section background={data.background}>
+        <ExperimentFooter
+          background={data.background}
+          buttonClickHandler={this.toggleInfo}
+          title={data.title} />
+        {
+          // This toggles between info and the experiment based on `this.state.info`
+          this.state.info
+            ? <div>HI</div>
+            : children
+        }
+      </Section>
+    )
+  }
+
+  toggleInfo = () => {
+    this.setState({ info: !this.state.info })
+  }
+}
+
+export default Experiment
