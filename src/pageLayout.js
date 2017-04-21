@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { colors } from './theme'
+import { COLORS } from './theme'
 
 // Temporary...will be replaced by the experiments themselves
 import { Intro, Experiment } from './components'
@@ -11,20 +11,20 @@ export default [
     <Intro />
   ],
   [
-    <Experiment background={colors.teal}>
+    <Experiment background={COLORS.teal}>
       <span>Hi theeeeerererere</span>
     </Experiment>
   ],
   [
-    <Experiment background={colors.red}>
+    <Experiment background={COLORS.red}>
       <span>Hey now!</span>
     </Experiment>,
-    <Experiment background={colors.blue}>
+    <Experiment background={COLORS.blue}>
       <span>Yay!!!</span>
     </Experiment>
   ],
   [
-    <Experiment background={colors.purple}>
+    <Experiment background={COLORS.purple}>
       <span>This will be really cool once it gets going</span>
     </Experiment>
   ]
