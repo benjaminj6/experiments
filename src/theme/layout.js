@@ -24,7 +24,7 @@ export const RowEven = ({
   <StyledRow>
     {
       [...children].map((child, i, arr) => (
-        <StyledRowChild width={`${100 / arr.length}%`}>
+        <StyledRowChild key={`row-item-${i}`} width={`${100 / arr.length}%`}>
           {child}
         </StyledRowChild>
       ))
