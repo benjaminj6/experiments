@@ -1,4 +1,4 @@
-export const colors = {
+export const COLORS = {
   blue: '#2196f3',
   green: '#4caf50',
   teal: '#009688',
@@ -10,7 +10,12 @@ export const colors = {
   white: '#efefef' // Slightly off-white improves readability
 }
 
-export const transitionTypes = {
+export const TRANSITIONS = {
   short: '0.25s linear'
 }
 
+export const DEFAULT_SVG_SIZE = 24
+
+export const MEDIA_SIZES = {
+
+}
