@@ -2,18 +2,20 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { PropMixins as Pm, MediaMixins } from './mixins'
+import { MediaMixins, PropMixins, SizingMixins } from './mixins'
+
+const fullWidth = SizingMixins.percentWidth(100)
 
 export const StyledRow = styled.div`
-  width: 100%
+  ${fullWidth}
 `
 
 export const StyledRowChild = styled.div`
   display: inline-block
-  width: 100%;
+  ${fullWidth}
 
   ${MediaMixins.medium`
-    width: ${Pm.getPropOrDefault('width', '100%')}
+    ${PropMixins.propOrDefault('width', '100%')}
   `}
 `
 

@@ -20,6 +20,7 @@ export const Button = styled.button`
   background-color: ${shade(20)}
   border: none
   padding: ${buttonPadding}px
+
   ${SizingMixins.circle(`${DEFAULT_SVG_SIZE + (buttonPadding * 2)}px`)}
   ${TransitionMixins.short('background-color')}
 
@@ -45,23 +46,25 @@ export const H1 = styled.h1`
 `
 
 export const Section = styled.section`
-  background: ${Pm.getPropOrDefault('background', white)}
   color: ${({ background }) => background && background !== white ? white : black}
-  height: ${Pm.getPropOrDefault('height', 'auto')}
   min-height: 400px
   padding: 1rem
   position: relative
   width: 100%
+
+  ${Pm.propOrDefault('background', white)}
+  ${Pm.propOrDefault('height', 'auto')}
 `
 
 export const Span = styled.span`
   color: ${Pm.getPropConditionally('whiteText', white, black)}
   font-size: ${Pm.getPropConditionally('small', '0.75rem', 'auto')}
   font-family: ${Pm.getPropConditionally('monospace', 'monospace', 'inherit')}
-  margin: ${Pm.getPropOrDefault('margin', 0)}
+
+  ${Pm.propOrDefault('margin', 0)}
 `
 
 export const Svg = styled.svg`
-  fill: ${Pm.getPropOrDefault('color', black)}
-  margin: ${Pm.getPropOrDefault('margin', 0)}
+  ${Pm.propOrDefault('fill', black)}
+  ${Pm.propOrDefault('margin', 0)}
 `
