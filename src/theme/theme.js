@@ -1,9 +1,15 @@
 // @flow
 import rgba from 'hex-rgba'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 import { colors } from './constants'
-import { getPropConditionally, getPropertyIfAbsolute, getPropOrDefault } from './mixins'
+import {
+  getPropConditionally,
+  getPropertyIfAbsolute,
+  getPropOrDefault,
+  hover,
+  transitionShort
+} from './mixins'
 
 const { black, white } = colors
 
@@ -40,10 +46,29 @@ export const Span = styled.span`
   margin: ${getPropOrDefault('margin', 0)}
 `
 
+// TODO: move these to mixins as well
+const shade = amt => rgba(black, amt)
+const setShadedProp = (shaded, defaultValue) => getPropConditionally('shaded', shaded, defaultValue)
+
 export const Svg = styled.svg`
-  background-color: ${getPropConditionally('shaded', rgba(black, 20), 'initial')}
-  border-radius: ${getPropConditionally('shaded', '50%', 0)}
   fill: ${getPropOrDefault('color', black)}
   margin: ${getPropOrDefault('margin', 0)}
-  padding: ${getPropConditionally('shaded', '0.25rem', 0)}
+  ${transitionShort('background-color')}
+
+  /* Shaded background */
+  ${
+    setShadedProp(css`
+      background-color: ${shade(20)}
+      border-radius: 50%
+      padding: 0.25rem
+    `, '')
+  }
+
+  /* Hover state for button svgs */
+  ${
+    getPropConditionally('button', hover`
+      background-color: ${setShadedProp(shade(30), shade(10))}
+      cursor: pointer
+    `, '')
+  }
 `

@@ -21,7 +21,7 @@ conditionalValue: mixed
 ) => getPropConditionally('absolute', conditionalValue, 'initial')
 
 export const hover = (...args: Array<any>) => css`
-  &:hover {
+  ;&:hover {
     ${css(...args)}
   }
 `
@@ -29,7 +29,7 @@ export const hover = (...args: Array<any>) => css`
 // Media queries -- use ems to handle users that modify font sizes
 export const media = {
   medium: (...args: Array<any>) => css`
-    @media (min-width: 30em) {
+    ;@media (min-width: 30em) {
       ${css(...args)}
     }
   `
