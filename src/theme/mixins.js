@@ -1,7 +1,7 @@
 // @flow
-/*
- * Contains various mixins to make life with styled-components a little easier to manage
-**/
+import { css } from 'styled-components'
+
+import { transitionTypes } from './constants'
 
 // Conditional application of properties.
 export const getPropOrDefault = (
@@ -17,6 +17,24 @@ export const getPropConditionally = (
 
 // Allows for setting of styles when an `absolute` prop is provided
 export const getPropertyIfAbsolute = (
-  conditionalValue: mixed
+conditionalValue: mixed
 ) => getPropConditionally('absolute', conditionalValue, 'initial')
 
+export const hover = (...args: Array<any>) => css`
+  &:hover {
+    ${css(...args)}
+  }
+`
+
+// Media queries -- use ems to handle users that modify font sizes
+export const media = {
+  medium: (...args: Array<any>) => css`
+    @media (min-width: 30em) {
+      ${css(...args)}
+    }
+  `
+}
+
+export const transitionShort = (prop: string) => css`
+  transition: ${prop} ${transitionTypes.short}
+`

@@ -1,14 +1,13 @@
 // @flow
-/*
- * Styled components to be used throughout page for consistent UI
- */
-import styled from 'styled-components'
 import rgba from 'hex-rgba'
+import styled from 'styled-components'
 
-import { black, white } from './colors'
+import { colors } from './constants'
 import { getPropConditionally, getPropertyIfAbsolute, getPropOrDefault } from './mixins'
 
-// General html tags
+const { black, white } = colors
+
+// General html tags, styled according to the app's theme
 export const Footer = styled.footer`
   align-items: center
   bottom: ${getPropertyIfAbsolute(0)}
@@ -20,11 +19,15 @@ export const Footer = styled.footer`
   right: ${getPropertyIfAbsolute(0)}
 `
 
+export const H1 = styled.h1`
+  font-weight: bolder
+`
+
 export const Section = styled.section`
   background: ${getPropOrDefault('background', white)}
   color: ${({ background }) => background && background !== white ? white : black}
   height: ${getPropOrDefault('height', 'auto')}
-  min-height: 200px
+  min-height: 400px
   padding: 1rem
   position: relative
   width: 100%

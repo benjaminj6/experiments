@@ -1,29 +1,28 @@
 // @flow
-/*
- * Contains components to be used in layout
-**/
 import React from 'react'
 import styled from 'styled-components'
 
-import { getPropOrDefault } from './mixins'
+import { getPropOrDefault, media } from './mixins'
 
 export const StyledRow = styled.div`
   width: 100%
 `
 
 export const StyledRowChild = styled.div`
-  width: ${getPropOrDefault('width', '100%')}
   display: inline-block
+  width: 100%;
+
+  ${media.medium`
+    width: ${getPropOrDefault('width', '100%')}
+  `}
 `
 
-export const RowEven = ({
-  children
-}: {
-  children: Array<any>
+export const RowEven = (props: {
+  children: Array<React$Component<any>>
 }) => (
   <StyledRow>
     {
-      [...children].map((child, i, arr) => (
+      [...props.children].map((child, i, arr) => (
         <StyledRowChild key={`row-item-${i}`} width={`${100 / arr.length}%`}>
           {child}
         </StyledRowChild>
