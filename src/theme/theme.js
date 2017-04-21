@@ -1,13 +1,13 @@
 // @flow
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 
 import { COLORS, DEFAULT_SVG_SIZE } from './constants'
 import {
-  pseudoSelectors as pseudo,
+  PseudoMixins,
   colorMixins,
   PropMixins as Pm,
   SizingMixins,
-  transitionShort
+  TransitionMixins
 } from './mixins'
 
 const { black, white } = COLORS
@@ -15,11 +15,18 @@ const { shade } = colorMixins
 
 
 // General html tags, styled according to the app's theme
+const buttonPadding = 2
 export const Button = styled.button`
-  background-color: transparent
+  background-color: ${shade(20)}
   border: none
-  padding: 0
-  ${SizingMixins.circle(`${24}px`)}
+  padding: ${buttonPadding}px
+  ${SizingMixins.circle(`${DEFAULT_SVG_SIZE + (buttonPadding * 2)}px`)}
+  ${TransitionMixins.short('background-color')}
+
+  ${PseudoMixins.hover`
+    background-color: ${shade(30)}
+    cursor: pointer
+  `}
 `
 
 export const Footer = styled.footer`
@@ -54,28 +61,7 @@ export const Span = styled.span`
   margin: ${Pm.getPropOrDefault('margin', 0)}
 `
 
-// TODO: move these to mixins as well
-const setShadedProp = (shaded, defaultValue) => Pm.getPropConditionally('shaded', shaded, defaultValue)
-
 export const Svg = styled.svg`
   fill: ${Pm.getPropOrDefault('color', black)}
   margin: ${Pm.getPropOrDefault('margin', 0)}
-  ${transitionShort('background-color')}
-
-  /* Shaded background */
-  ${
-    setShadedProp(css`
-      background-color: ${shade(20)}
-      border-radius: 50%
-      padding: 0.25rem
-    `, '')
-  }
-
-  /* Hover state for button svgs */
-  ${
-    Pm.getPropConditionally('button', pseudo.hover`
-      background-color: ${setShadedProp(shade(30), shade(10))}
-      cursor: pointer
-    `, '')
-  }
 `
