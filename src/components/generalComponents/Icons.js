@@ -5,10 +5,7 @@ import React from 'react'
 import { theme, colors } from '../../theme'
 const { Svg: StyledSvg } = theme
 
-const Svg = (props: {
-  size?: number,
-  children?: Array<any> // TODO: figure out type to use for React component
-}) => (
+const Svg = (props: { size?: number, children?: Array<any> }) => (
   <StyledSvg
     color={colors.white}
     height={props.size || 24}

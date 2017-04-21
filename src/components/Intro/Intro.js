@@ -1,16 +1,21 @@
 import React from 'react'
+import styled from 'styled-components'
 
 import { theme } from '../../theme'
 
-// Styles
-import './Intro.css'
+const { Section, H1 } = theme
 
-const { Section } = theme
+const StyledSection = styled(Section)`
+  text-align: center
+  display: flex
+  justify-content: center
+  flex-direction: column
+`
 
 export default props => (
-  <Section
+  <StyledSection
     id='intro'>
-    <h1>Hello world!</h1>
+    <H1>Hello world!</H1>
     <h3>Welcome to my playground</h3>
-  </Section>
+  </StyledSection>
 )
