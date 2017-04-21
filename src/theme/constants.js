@@ -14,8 +14,9 @@ export const TRANSITIONS = {
   short: '0.25s linear'
 }
 
-export const DEFAULT_SVG_SIZE = 24
+export const REM = 18
+export const DEFAULT_SVG_SIZE = REM + 2 // Needs to be a `px` amt for svg props
 
-export const MEDIA_SIZES = {
-
+export const BREAKPOINTS = {
+  medium: '25em'
 }

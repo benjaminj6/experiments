@@ -2,7 +2,7 @@
 import rgba from 'hex-rgba'
 import { css } from 'styled-components'
 
-import { COLORS, TRANSITIONS } from './constants'
+import { COLORS, TRANSITIONS, BREAKPOINTS } from './constants'
 
 export const colorMixins = {
   shade: (amt: number) => rgba(COLORS.black, amt),
@@ -20,26 +20,33 @@ export class PropMixins {
 
   // shortcut for getPropConditionally('absolute', value, 'initial')
   static getPropertyIfAbsolute (conditionalValue: mixed) {
-    console.log(this)
     return this.getPropConditionally('absolute', conditionalValue, 'initial')
   }
 }
 
 // Media queries -- use ems to handle users that modify font sizes
-export const media = {
-  medium: (...args: Array<any>) => css`
-    ;@media (min-width: 30em) {
-      ${css(...args)}
-    }
-  `
+export class MediaMixins {
+  static _media (breakpoint, ...args: Array<any>) {
+    return () => css`
+      ;@media (min-width: ${breakpoint}) {
+        ${css(...args)}
+      }
+    `
+  }
+
+  static medium (...args) {
+    return this._media(BREAKPOINTS.medium, ...args)
+  }
 }
 
-export const pseudoSelectors = {
-  hover: (...args: Array<any>) => css`
-    ;&:hover {
-      ${css(...args)}
-    }
-  `
+export class PseudoMixins {
+  static hover (...args: Array<any>) {
+    return css`
+      ;&:hover {
+        ${css(...args)}
+      }
+    `
+  }
 }
 
 export class SizingMixins {
@@ -55,6 +62,16 @@ export class SizingMixins {
       ${this.square(size)}
       border-radius: 50%
     `
+  }
+}
+
+export class TransitionMixins {
+  static _transition (prop: string, transitionType: string) {
+    return css`transition: ${prop} ${transitionType}`
+  }
+
+  static short (prop: string) {
+    return this._transition(prop, TRANSITIONS.short)
   }
 }
 

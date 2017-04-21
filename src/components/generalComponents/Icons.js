@@ -2,15 +2,15 @@
 // This contains all of the SVG icons to be used as inline SVG site-wide.
 import React from 'react'
 
-import { theme, COLORS } from '../../theme'
+import { theme, COLORS, DEFAULT_SVG_SIZE } from '../../theme'
 const { Svg: StyledSvg } = theme
 
 const Svg = (props: { size?: number, children?: Array<any> }) => (
   <StyledSvg
     color={COLORS.white}
-    height={props.size || 24}
+    height={props.size || DEFAULT_SVG_SIZE}
     viewBox='0 0 24 24'
-    width={props.size || 24}
+    width={props.size || DEFAULT_SVG_SIZE}
     {...props}>
     {props.children}
   </StyledSvg>
