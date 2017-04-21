@@ -7,14 +7,20 @@ import pageLayout from './pageLayout'
 
 const { RowEven } = layout
 
+const mapInnerComponents = (rowIndex: number) => (Item, i) => (
+  <Item key={`row-${rowIndex}-item-${i}`} />
+)
+
+const mapRows = (rowContent, i) => (
+  <RowEven key={`row-${i}`}>
+    {rowContent.map(mapInnerComponents(i))}
+  </RowEven>
+)
+
 const App = () => (
   <div id='app'>
     {
-      pageLayout.map((rowContent, i) => (
-        <RowEven key={`row-${i}`}>
-          {rowContent.map((Item, j) => <Item key={`row-${i}-item-${j}`} />)}
-        </RowEven>
-      ))
+      pageLayout.map(mapRows)
     }
   </div>
 )
