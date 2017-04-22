@@ -54,7 +54,7 @@ it(
 )
 
 it(
-  'should call `buttonClickHandler` on button click',
+  'should call `buttonClickHandler` on a button click event',
   shallowRenderButtonTest(button => {
     button.simulate('click')
     expect(button.props().onClick.mock.calls).toHaveLength(1)
