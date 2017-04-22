@@ -42,12 +42,20 @@ export class PropMixins {
 }
 
 export class PseudoMixins {
-  static hover (...args: Array<any>) {
-    return css`
-      ;&:hover {
+  static _composePseudo (selector: string, ...args: Array<any>) {
+    return () => css`
+      ;&:${selector} {
         ${css(...args)}
       }
     `
+  }
+
+  static hover (...args: Array<any>) {
+    return this._composePseudo('hover', ...args)
+  }
+
+  static focus (...args: Array<any>) {
+    return this._composePseudo('focus', ...args)
   }
 }
 
