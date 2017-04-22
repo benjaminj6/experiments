@@ -42,7 +42,6 @@ class Experiment extends Component {
   }
 
   toggleInfo = () => {
-    console.log(this.state.info)
     this.setState({ info: !this.state.info })
   }
 }
