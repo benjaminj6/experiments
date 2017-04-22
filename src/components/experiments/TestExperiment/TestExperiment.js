@@ -2,12 +2,8 @@
 import React from 'react'
 
 import { Experiment } from '../../generalComponents'
-import { COLORS } from '../../../theme'
 
-const data = {
-  title: 'testtesttest',
-  background: COLORS.red
-}
+import data from './data'
 
 export default (props: any) => (
   <Experiment data={data}>

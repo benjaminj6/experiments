@@ -33,7 +33,7 @@ class Experiment extends Component {
           {
             // This toggles between info and the experiment based on `this.state.info`
             this.state.info
-              ? <ContainerDiv>HI</ContainerDiv>
+              ? <div className='info'>HI</div>
               : children
           }
         </ContainerDiv>
