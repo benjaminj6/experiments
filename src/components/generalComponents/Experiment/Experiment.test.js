@@ -1,7 +1,8 @@
 import React from 'react'
+import { shallow } from 'enzyme'
 
 import Experiment from './Experiment'
-import { shallowRenderTest } from 'src/_testUtils'
+import { shallowRenderTest, shallowRenderThrowTest } from 'src/_testUtils'
 
 const mockData = {
   title: 'test',
@@ -20,11 +21,12 @@ it(
 )
 
 it(
-  'should pass `data.title` & `data.background` props to a `ExperimentFooter` component',
+  'should pass title, background, and toggleInfo as props to a `ExperimentFooter` component',
   shallowRenderDefaultExperiment(wrapper => {
     const experimentFooterProps = wrapper.find('ExperimentFooter').props()
     expect(experimentFooterProps.title).toBe(mockData.title)
     expect(experimentFooterProps.background).toBe(mockData.background)
+    expect(experimentFooterProps.buttonClickHandler).toBe(wrapper.instance().toggleInfo)
   })
 )
 
@@ -51,6 +53,11 @@ it(
   'should modify `state.info` on `toggleInfo`',
   shallowRenderDefaultExperiment(wrapper => {
     wrapper.instance().toggleInfo()
-    console.log(wrapper)
+    expect(wrapper.state().info).toBe(true)
   })
+)
+
+it(
+  'should not render if `data` prop is not passed',
+  shallowRenderThrowTest(<Experiment />)
 )
