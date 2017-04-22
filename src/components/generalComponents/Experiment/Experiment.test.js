@@ -1,8 +1,7 @@
 import React from 'react'
-import { shallow } from 'enzyme'
 
 import Experiment from './Experiment'
-import { shallowRenderTest } from '_testUtils'
+import { shallowRenderTest } from 'src/_testUtils'
 
 const mockData = {
   title: 'test',
