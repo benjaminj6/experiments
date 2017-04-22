@@ -2,20 +2,11 @@ import React from 'react'
 import { shallow } from 'enzyme'
 
 import Experiment from './Experiment'
+import { shallowRenderTest } from '_testUtils'
 
 const mockData = {
   title: 'test',
   background: 'white'
-}
-
-const shallowRenderTest = (Component, fn) => done => {
-  const wrapper = shallow(Component)
-
-  if (fn) {
-    fn(wrapper)
-  }
-
-  done()
 }
 
 const shallowRenderDefaultExperiment = fn => shallowRenderTest(<Experiment data={mockData} />, fn)
