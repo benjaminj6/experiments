@@ -13,7 +13,6 @@ import {
 const { black, white } = COLORS
 const { shade } = colorMixins
 
-
 // General html tags, styled according to the app's theme
 const buttonPadding = 2
 export const Button = styled.button`
