@@ -2,7 +2,7 @@
 import React from 'react'
 
 import { InfoIcon } from '../Icons'
-import { theme, COLORS } from '../../../theme'
+import { theme, COLORS } from 'src/theme'
 
 const { Button, Footer, Span } = theme
 
