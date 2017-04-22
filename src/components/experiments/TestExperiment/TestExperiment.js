@@ -1,7 +1,7 @@
 // @flow
 import React from 'react'
 
-import { Experiment } from '../../generalComponents'
+import { Experiment } from 'src/components/generalComponents'
 
 import data from './data'
 

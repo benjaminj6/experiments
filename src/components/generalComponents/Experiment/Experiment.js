@@ -2,7 +2,7 @@
 import React, { Component } from 'react'
 
 import ExperimentFooter from './ExperimentFooter'
-import { theme, layout } from '../../../theme'
+import { theme, layout } from 'src/theme'
 
 const { ContainerDiv } = layout
 const { Section } = theme
