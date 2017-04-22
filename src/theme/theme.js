@@ -28,6 +28,11 @@ export const Button = styled.button`
     background-color: ${shade(30)}
     cursor: pointer
   `}
+
+  ${PseudoMixins.focus`
+    background-color: ${shade(30)}
+    outline: none
+  `}
 `
 
 export const Footer = styled.footer`
