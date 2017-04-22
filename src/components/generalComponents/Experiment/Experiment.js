@@ -2,8 +2,9 @@
 import React, { Component } from 'react'
 
 import ExperimentFooter from './ExperimentFooter'
-import { theme } from '../../../theme'
+import { theme, layout } from '../../../theme'
 
+const { ContainerDiv } = layout
 const { Section } = theme
 
 class Experiment extends Component {
@@ -24,21 +25,24 @@ class Experiment extends Component {
 
     return (
       <Section background={data.background}>
-        <ExperimentFooter
-          background={data.background}
-          buttonClickHandler={this.toggleInfo}
-          title={data.title} />
-        {
-          // This toggles between info and the experiment based on `this.state.info`
-          this.state.info
-            ? <div>HI</div>
-            : children
-        }
+        <ContainerDiv>
+          <ExperimentFooter
+            background={data.background}
+            buttonClickHandler={this.toggleInfo}
+            title={data.title} />
+          {
+            // This toggles between info and the experiment based on `this.state.info`
+            this.state.info
+              ? <ContainerDiv>HI</ContainerDiv>
+              : children
+          }
+        </ContainerDiv>
       </Section>
     )
   }
 
   toggleInfo = () => {
+    console.log(this.state.info)
     this.setState({ info: !this.state.info })
   }
 }

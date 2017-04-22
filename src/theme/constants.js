@@ -18,5 +18,6 @@ export const REM = 18
 export const DEFAULT_SVG_SIZE = REM + 2 // Needs to be a `px` amt for svg props
 
 export const BREAKPOINTS = {
-  medium: '25em'
+  medium: '25em',
+  extraLarge: `${1200 / REM}em` // 1200px in em
 }

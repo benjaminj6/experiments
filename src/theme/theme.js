@@ -41,7 +41,7 @@ export const Footer = styled.footer`
   display: flex
   left: ${Pm.getPropertyIfAbsolute(0)}
   justify-content: flex-end
-  padding: 0.5rem
+  padding: 1rem
   position: ${Pm.getPropertyIfAbsolute('absolute')}
   right: ${Pm.getPropertyIfAbsolute(0)}
 `
