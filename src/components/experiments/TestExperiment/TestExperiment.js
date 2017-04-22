@@ -5,7 +5,7 @@ import { Experiment } from 'src/components/generalComponents'
 
 import data from './data'
 
-export default (props: any) => (
+export default () => (
   <Experiment data={data}>
     <span>content.</span>
   </Experiment>
