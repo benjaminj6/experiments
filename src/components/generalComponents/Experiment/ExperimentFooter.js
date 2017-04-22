@@ -20,7 +20,6 @@ const ExperimentFooter = (props: {
   background: string,
   title: string,
   buttonClickHandler: Function
-
 }) => (
   <Footer absolute>
     <StyledSpan
