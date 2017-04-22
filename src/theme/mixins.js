@@ -77,6 +77,13 @@ export class SizingMixins {
   static percentWidth (width: number) {
     return css`width: ${width}%`
   }
+
+  static maxWidthCentered (width: string) {
+    return css`
+      margin: 0 auto
+      max-width: ${width}
+    `
+  }
 }
 
 export class TransitionMixins {
@@ -88,7 +95,3 @@ export class TransitionMixins {
     return this._transition(prop, TRANSITIONS.short)
   }
 }
-
-export const transitionShort = (prop: string) => css`
-  transition: ${prop} ${TRANSITIONS.short}
-`

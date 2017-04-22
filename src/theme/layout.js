@@ -12,8 +12,12 @@ export const ContainerDiv = styled.div`
   left: 0
   bottom: 0
   padding: 1rem
-  max-width: ${BREAKPOINTS.extraLarge}
-  margin: 0 auto
+
+  ${SizingMixins.maxWidthCentered(BREAKPOINTS.extraLarge)}
+`
+
+export const TextContainerDiv = styled.div`
+  ${SizingMixins.maxWidthCentered(BREAKPOINTS.medium)}
 `
 
 const fullWidth = SizingMixins.percentWidth(100)
