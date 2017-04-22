@@ -3,14 +3,26 @@ import React from 'react'
 import styled from 'styled-components'
 
 import { MediaMixins, PropMixins, SizingMixins } from './mixins'
+import { BREAKPOINTS } from './constants'
+
+export const ContainerDiv = styled.div`
+  position: absolute
+  top: 0
+  right: 0
+  left: 0
+  bottom: 0
+  padding: 1rem
+  max-width: ${BREAKPOINTS.extraLarge}
+  margin: 0 auto
+`
 
 const fullWidth = SizingMixins.percentWidth(100)
 
-export const StyledRow = styled.div`
+const StyledRow = styled.div`
   ${fullWidth}
 `
 
-export const StyledRowChild = styled.div`
+const StyledRowChild = styled.div`
   display: inline-block
   ${fullWidth}
 
